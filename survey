@@ -1,0 +1,31 @@
+<script>
+var app = angular.module('surveyApp', []);
+app.controller('surveyCtrl', function($scope) {
+    $scope.effect = ["Flanger","Chorus","Delay"];
+    $scope.price = ["$99-$199","$200-$299","$300-$399"];
+  });
+</script>
+
+<div ng-app="surveyApp" ng-controller="surveyCtrl" class="survey" id="effectSurvey" style="background-color:#ffffff;border:1px solid purple; border-radius:20px; width: 30%; text-align:center; margin: auto; margin-top: 20px; padding: 20px 20px 20px 20px; box-shadow: 5px 5px 10px gray;">
+  <h3>Select the effect type and price point of the pedal you want to see released next.</h3>
+  <table align="center" style="width:20%">
+  <tr>
+    <th>Effect</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+   <td style="text-align: center; vertical-align: middle;">
+    <select ng-model="selectedEffect" style="padding: 10px 10px 10px 10px;text-align=center">
+      <option ng-repeat="x in effect" value="{{x}}">{{x}}</option>
+    </select>
+   </td>
+   <td style="text-align: center; verical align: middle;">
+    <select ng-model="selectedPrice" style="padding: 10px 10px 10px 10px;padding-bottom:10px;text-align=center">
+      <option ng-repeat="x in price" value="{{x}}">{{x}}</option>
+    </select>
+   </td>
+ </tr>
+ </table>
+  <p>You selected:<strong> {{selectedEffect}}</strong> at a price point of <strong>{{selectedPrice}} </strong></p>
+  <button type="submit" class="submit_survey">Submit</button>
+</div>
